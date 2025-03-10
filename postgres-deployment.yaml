@@ -24,5 +24,12 @@ spec:
               value: "password123"
             - name: POSTGRES_DB
               value: "capitec_db"
+          volumeMounts:
+            - name: postgres-data
+              mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: postgres-data
+          persistentVolumeClaim:
+            claimName: postgres-pvc
 
 
